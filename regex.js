@@ -31,7 +31,13 @@ Expected Output:
 
 */ 
  
-let phoneReg = /write your regex here/
+/** 1st line creates new regex pattern to match phone numbers in the format of "###-###-####", where "#" represents a digit. The `\d` character class matches any digit, and the `{3}` and `{4}` quantifiers specify that there must be exactly three and four digits, respectively. The `-` characters match the hyphens that separate the digits. The `g` flag at the end of the regex pattern means that the search should be global, which means that it will find all matches in the string, not just the first one. 
+
+2nd line uses the `match()` method to search for all occurrences of the regex pattern in the `sampleApp` string. The `match()` method returns an array of all matches, or `null` if no matches are found. The array contains the matched substrings, as well as any captured groups within the regex pattern. */
+
+let phoneReg = /\d{3}-\d{3}-\d{4}/g
+let phoneArr = sampleApp.match(phoneReg)
+console.log(phoneArr)
 
 /* 
 
@@ -51,7 +57,13 @@ Expected Output:
 
 */ 
 
-let emailReg = /write your regex here/
+/** 1st line creates a new regex pattern that matches email addresses in the format of "username@domain.com". The `\w+` character class matches one or more word characters (letters, digits, or underscores), which is used to match the username part of the email address. The `@[a-zA-Z]+` part matches the "@" symbol and one or more letters for the domain name. The final `[a-zA-Z]+` matches the top-level domain (.com, .net, .org, etc.). 
+ 
+2nd line uses the `match()` method to search for all occurrences of the regex pattern in the `sampleApp` string. The `match()` method returns an array of all matches, or `null` if no matches are found. The array contains the matched substrings, as well as any captured groups within the regex pattern. */
+
+let emailReg = /\w+@[a-zA-Z]+.[a-zA-Z]+/
+let emailArr = sampleApp.match(emailReg)
+console.log(emailArr)
 
 /* 
 
@@ -67,4 +79,10 @@ Expected Output:
 
 */ 
 
-let statusReg = /write your regex here/
+/** 1st line creates a new regex pattern that matches the word "status" followed by a colon. The `i` flag at the end of the regex pattern means that the search should be case-insensitive, so it will match both "status:" and "Status:".
+
+2nd line uses the `search()` method to search for the first occurrence of the regex pattern in the `sampleApp` string. The `search()` method returns the index of the first match, or `-1` if no matches are found.*/
+
+let statusReg = /status:/i 
+let statusIndex = sampleApp.search(statusReg)
+console.log(statusIndex)
